@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Book Library</title>
+  <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+  <div class='menu-container'>
+    <div class='menu'>
+      <div class='date'>Jan 19, 2021</div>
+      <div class='links'>
+        <div class='signup'>Sign Up</div>
+        <div class='login'>Login</div>
+      </div>
+    </div>
+  </div>
+
+  <div class='header-container'>
+    <div class='header'>
+      <div class='logo'>Book Library</div>
+    </div>
+  </div>
+
+  <ul class='book-grid-container'>
+    <li class='book-grid-item'>
+      <div class="btn-delete">
+        <i class="fas fa-times-circle"></i>
+      </div>
+    </li>
+  </ul>
+
+  <button class="add-book-button">Add Book</button>
+
+  <div class="form-popup">
+    <form class="form-container">
+      <h1>Add Book</h1>
+
+      <label for="title"><b>Title</b></label>
+      <input type="text" placeholder="Enter book title" name="title" required>
+
+      <label for=author><b>Author</b></label>
+      <input type="text" placeholder="Enter book author" name="author" required>
+
+      <button type="submit" class="btn">Add</button>
+      <button type="button" class="btn cancel">Close</button>
+    </form>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+
+</html>
