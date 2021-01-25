@@ -79,13 +79,6 @@ function createBookCard(book, index) {
   booksGrid.appendChild(bookCard);
 }
 
-function insertAddBookButton() {
-  const addBookButton = document.createElement("li");
-  addBookButton.classList.add("btn-add-book");
-  addBookButton.textContent = "+";
-  booksGrid.appendChild(addBookButton);
-}
-
 function openForm() {
   form.style.display = "block";
 }
@@ -104,7 +97,8 @@ function addBook(e) {
 function readForm() {
   const title = form.querySelector('input[name="title"]').value;
   const author = form.querySelector('input[name="author"]').value;
-  return new Book(title, author, 100, true);
+  const completed = form.querySelector('input[name="completed"]').checked;
+  return new Book(title, author, 100, completed);
 }
 
 function executeAction(e) {
