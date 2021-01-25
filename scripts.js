@@ -38,6 +38,11 @@ function createBookCard(book, index) {
   const bookCard = document.createElement("li");
   const bookTitle = document.createElement("div");
   const bookAuthor = document.createElement("div");
+  const buttonsOverlay = document.createElement("div");
+  const readButton = document.createElement("div");
+  const toggleSwitch = document.createElement("label");
+  const checkbox = document.createElement("input");
+  const slider = document.createElement("span");
   const deleteButton = document.createElement("div");
   const deleteIcon = document.createElement("i");
 
@@ -45,16 +50,31 @@ function createBookCard(book, index) {
   bookCard.setAttribute("data-index", index);
   bookTitle.classList.add("book-title");
   bookAuthor.classList.add("book-author");
+  buttonsOverlay.classList.add("buttons-overlay");
+  readButton.classList.add("btn-read");
+  toggleSwitch.classList.add("switch");
+  checkbox.type = "checkbox";
+  slider.classList.add("slider");
+  slider.classList.add("round");
   deleteButton.classList.add("btn-delete");
   deleteIcon.setAttribute("class", "fas fa-times-circle");
 
   bookTitle.textContent = book.title;
   bookAuthor.textContent = book.author;
+  if (book.completed) {
+    checkbox.checked = true;
+  }
 
+  toggleSwitch.appendChild(checkbox);
+  toggleSwitch.appendChild(slider);
+  readButton.appendChild(toggleSwitch);
   deleteButton.appendChild(deleteIcon);
+  buttonsOverlay.appendChild(readButton);
+  buttonsOverlay.appendChild(deleteButton);
+  
   bookCard.appendChild(bookTitle);
   bookCard.appendChild(bookAuthor);
-  bookCard.appendChild(deleteButton);
+  bookCard.appendChild(buttonsOverlay);
 
   booksGrid.appendChild(bookCard);
 }
@@ -88,10 +108,17 @@ function readForm() {
 }
 
 function executeAction(e) {
-  console.log(e.target.parentNode.parentNode.getAttribute("data-index"));
-  if (e.target.parentNode.classList.contains("btn-delete")) {
-    const bookIndex = e.target.parentNode.parentNode.getAttribute("data-index");
+  //console.log(e.target.closest(".btn-read").classList.contains("btn-read"));
+  if (e.target.closest(".btn-delete")) {
+    const bookIndex = e.target.closest(".book-grid-item").getAttribute("data-index");
     removeBook(bookIndex);
+  } else if (e.target.closest(".btn-read")) {
+    const bookIndex = e.target.closest(".book-grid-item").getAttribute("data-index");
+    if (e.target.checked) {
+      myLibrary[bookIndex].completed = true;
+    } else {
+      myLibrary[bookIndex].completed = false;
+    }
   }
 }
 function removeBook(bookIndex) {

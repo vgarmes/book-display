@@ -161,6 +161,10 @@ body {
   font-size: 2em;
 }
 
+.btn-delete:hover {
+  color: red;
+}
+
 .switch {
   position: relative;
   display: inline-block;
