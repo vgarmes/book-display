@@ -128,6 +128,10 @@ body {
   outline: none;
 }
 
+.form-container .switch {
+  margin: 5px 0 22px 0;
+}
+
 .form-container .btn {
   background-color: #4CAF50;
   color: white;

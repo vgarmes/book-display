@@ -1,3 +1,6 @@
+const today = new Date();
+document.querySelector(".date").innerHTML = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
+
 let myLibrary = [];
 const booksGrid = document.querySelector(".book-grid-container");
 const addBookButton = document.querySelector(".add-book-button");
